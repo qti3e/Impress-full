@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/substep.css" rel="stylesheet" />
+    <style type="text/css">
+        #imagination {
+            width: 800px;
+        }
+
+        #imagination .imagination {
+            font-size: 78px;
+        }
+        #source {
+            width: 700px;
+            padding-bottom: 300px;
+
+            /* Yoda Icon :: Pixel Art from Star Wars http://www.pixeljoint.com/pixelart/1423.htm */
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAMAAACwUBm+AAAAAXNSR0IArs4c6QAAAKtQTFRFsAAAvbWSLUUrLEQqY1s8UYJMqJ1vNTEgOiIdIzYhjIFVLhsXZ6lgSEIsP2U8JhcCVzMsSXZEgXdOO145XJdWOl03LzAYMk4vSXNExr+hwcuxRTs1Qmk+RW9Am49eFRANQz4pUoNMQWc+OSMDTz0wLBsCNVMxa2NBOyUDUoNNSnlEWo9VRGxAVzYFl6tXCggHbLNmMUIcHhwTXkk5f3VNRT8wUT8xAAAACQocRBWFFwAAAAF0Uk5TAEDm2GYAAAPCSURBVHja7d3JctNAFIZRMwRCCGEmzPM8z/D+T8bu/ptbXXJFdij5fMt2Wuo+2UgqxVmtttq5WVotLzBgwIABAwYMGDCn0qVqbo69psPqVpWx+1XG5iaavF8wYMCAAQMGDBgwi4DJ6Y6qkxB1HNlcN3a92gbR5P2CAQMGDBgwYMCAWSxMlrU+UY5yu2l9okfV4bAxUVbf7TJnAwMGDBgwYMCAAbMLMHeqbGR82Zy+VR1Ht81nVca6R+UdTLaU24Ruzd3qM/e4yjnAgAEDBgwYMGDA7AJMd1l/3NRdVGcj3eX/2WEhCmDGxnM7yqygu8XIPjJj8iN/MGDAgAEDBgwYMAuDGb8q0RGlLCHLv1t9qDKWn3vdNHVuEI6HPaxO9Jo3GDBgwIABAwYMmIXBdC9ShGgMk+XnkXUeuGcsP/e1+lhNnZsL/G5Vs3OAAQMGDBgwYMCAWSxMR3SzOmraG5atdy9wZKzb+vg16qyqe2FltbnAgAEDBgwYMGDALAxmTJSuN3WA76rnVca6GTnemGN1WoEBAwYMGDBgwIBZGMxUomy4+xO899V4LAg5Xnc2MGDAgAEDBgwYMGA218Wq+2K1LDqvY9xZu8zN8fICdM6btYABAwYMGDBgwIABMzfH0+pGU5afze2tXebmeAfVz+p8BQYMGDBgwIABAwbMPBzZ+oWmfJrln1273FhkbHzee9WWbw7AgAEDBgwYMGDALAKm43hcdctKgblcPamOhuXnXlY5Xs6bsW4FGyQCAwYMGDBgwIABswiYMceZKgvMo+h8mrHLTdn676rj+FEFoTtHd8MwOxEYMGDAgAEDBgyYRcBM5UhXqiymW3R3c9ARhWO/OmjqfjVZy+xEYMCAAQMGDBgwYBYG073OnCV0RFNhMhaOa9WfKmOB6XjHMN1tQmaAAQMGDBgwYMCA2VWY7vXjz1U4croAzgPztwIDBgwYMGDAgAEDZhswh035NBw59Dww3RgYMGDAgAEDBgwYMJuD6f4tXT7NUqfCdBvZLkxXdgQGDBgwYMCAAQNmt2DGj8WzwAfV/w7T/aq7mxwwYMCAAQMGDBgwuwqTOo7uTwTngflSzQ3TdaJvAwEDBgwYMGDAgAED5gSvgbyo5oHZ4Pc+gwEDBgwYMGDAgAEzhOm+5G0qTGaAAQMGDBgwYMCAAXNaMOcnls3tNwWm+zRzp54NDBgwYMCAAQMGDJh5YNL36k1TLuGvVq+qnKMbS5n7tulT9asCAwYMGDBgwIABA2ZumKuztLnjgQEDBgwYMGDAgNl5mH/4/ltKA6vBNAAAAABJRU5ErkJggg==);
+            background-position: bottom right;
+            background-repeat: no-repeat;
+        }
+
+        #source q {
+            font-size: 60px;
+        }
+        #big {
+            width: 600px;
+            text-align: center;
+            font-size: 60px;
+            line-height: 1;
+        }
+
+        #big b {
+            display: block;
+            font-size: 250px;
+            line-height: 250px;
+        }
+
+        #big .thoughts {
+            font-size: 90px;
+            line-height: 150px;
+        }
+        #tiny {
+            width: 500px;
+            text-align: center;
+        }
+        #ing { width: 500px }
+        a {
+            color: inherit;
+            text-decoration: none;
+            padding: 0 0.1em;
+            background: rgba(255,255,255,0.5);
+            text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+            border-radius: 0.2em;
+
+            -webkit-transition: 0.5s;
+            -moz-transition:    0.5s;
+            -ms-transition:     0.5s;
+            -o-transition:      0.5s;
+            transition:         0.5s;
+        }
+
+        a:hover,
+        a:focus {
+            background: rgba(255,255,255,1);
+            text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+        }
+        #lab-1 input{
+            float: right;
+            /*margin-right: 400px;*/
+        }
+        #animationSandbox{
+            color: #F35626;
+            text-align: center;
+            font-size: 72px;
+        }
+        .butt {
+            border: 2px solid #f35626;
+            line-height: 1.375;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+
+            font-weight: 700;
+
+            color: #f35626;
+
+            cursor: pointer;
+            -webkit-animation: hue 60s infinite linear;
+        }
+        #lab-2 ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            background-color: #e7ebed;
+        }
+    </style>
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+        <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
+    </div>
+    <div data-background-color="#000000" class="step dark-slide" data-x="0" data-y="-1500">
+        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+    </div>
+    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+        <span class="try">then you should try</span>
+        <h1>impress.js<sup>*</sup></h1>
+        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+    </div>
+    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>It's a <strong>presentation tool</strong> <br/>
+            inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+            and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    </div>
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    </div>
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+        <p>and <b>tiny</b> ideas</p>
+    </div>
+    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <p>by <b class="animate positioning">positioning</b>, <b class="animate rotating">rotating</b> and <b class="animate scaling">scaling</b> them on an infinite canvas</p>
+    </div>
+    <div id="animation" class="step" data-x="4500" data-y="-2500" data-rotate="360" data-scale="6">
+        <p>And lots of modern animation like: <b class="animate jello s2 hide">jello</b> <b class="animate flipInX s4 hide">flipIn</b>
+        <b class="animate zoomIn s6 hide"> with  display time</b></p>
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>the only <b>limit</b> is your <br><b class="imagination animate wobble s10">im<b class="animate shake s10">a</b>gin<b class="animate shake s10">a</b>tion</b></p>
+    </div>
+
+    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+        <p>want to know more?</p>
+        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+    </div>
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>one more thing...</p>
+    </div>
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p><span class="tr50 tr0as">have</span> <span class="tr50m tr0as">you</span> <span class="noticed">noticed</span> <span class="tr100">it's</span> <span class="tr50m">in</span> <b>3D<sup>*</sup></b>?</p>
+        <span class="footnote">* beat that, prezi ;)</span>
+    </div>
+    <div id="overview" class="step" data-x="3000" data-y="700" data-scale="12">
+        <h1 class="animate fadeInLeftBig full-hide s2" style="text-align: center;">Want to learn it?</h1>
+        <h3 class="animate fadeInRightBig full-hide s4" style="text-align: center;">So press a Spacebar again<b class="animate jello s10">...</b></h3>
+    </div>
+    <!--Documents-->
+    <div class="step" data-x="10000" data-y="-1000">
+        <h1>Hello!</h1>
+    </div>
+    <div class="step dark-slide" data-x="11000" data-y="-1000">
+        <p>The basically format for an Impress.js presentation is this code:</p>
+        <pre id="edit">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=1024&quot; /&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Bartek Szopka&quot; /&gt;
+    &lt;link href=&quot;http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic&quot; rel=&quot;stylesheet&quot; /&gt;
+    &lt;link href=&quot;css/impress.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;
+&lt;body class=&quot;impress-not-supported&quot;&gt;
+&lt;div class=&quot;fallback-message&quot;&gt;
+    &lt;p&gt;Your browser &lt;b&gt;doesn't support the features required&lt;/b&gt; by impress.js, so you are presented with a simplified version of this presentation.&lt;/p&gt;
+    &lt;p&gt;For the best experience please use the latest &lt;b&gt;Chrome&lt;/b&gt;, &lt;b&gt;Safari&lt;/b&gt; or &lt;b&gt;Firefox&lt;/b&gt; browser.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;impress&quot;&gt;
+     &lt;!--Steps--&gt;
+&lt;/div&gt;
+&lt;div class=&quot;hint&quot;&gt;
+    &lt;p&gt;Use a spacebar or arrow keys to navigate&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    if (&quot;ontouchstart&quot; in document.documentElement) {
+        document.querySelector(&quot;.hint&quot;).innerHTML = &quot;&lt;p&gt;Tap on the left or right to navigate&lt;/p&gt;&quot;;
+    }
+&lt;/script&gt;
+&lt;script src=&quot;js/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/impress.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;impress().init();&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p>Each step of the presentation should be an element inside the `#impress`(line 18-20)...</p>
+    </div>
+    <div class="step" data-x="12000" data-y="-1000"><h1 style="border-bottom: 1px solid #ff0050">Steps<b class="animate tada s15">...</b></h1></div>
+    <div class="step" data-x="12000" data-y="-700">
+        <p>Each step of the presentation should be an element inside the `#impress` with `step` class name.</p>
+    </div>
+    <div class="step" data-x="12000" data-y="-200">
+        <p> These step elements are positioned, rotated and scaled by impress.js, and
+            the 'camera' shows them on each step of the presentation.<br>
+            Positioning information is passed through data attributes.</p>
+    </div>
+    <div class="step" data-x="13000" data-y="-1000">
+        <h1 style="text-align: left;"><b style="font-size: 50px;">data- attributes</b></h1>
+    </div>
+    <div class="step" data-x="13000" data-y="-700">
+        <h1 style="text-align: left;">1<b style="font-size: 30px;">data-z</b></h1>
+    </div>
+    <div class="step" data-x="13000" data-y="-500">
+        <h1 style="text-align: left;">2<b style="font-size: 30px;">data-x</b></h1>
+    </div>
+    <div class="step" data-x="13000" data-y="-300">
+        <h1 style="text-align: left;">3<b style="font-size: 30px;">data-y</b></h1>
+    </div>
+    <div class="step" data-x="14000" data-y="-1000">
+        <h1 style="text-align: left;"><b style="font-size: 50px;">data-rotate- attributes</b></h1>
+    </div>
+
+    <div class="step" data-x="14000" data-y="-700">
+        <h1 style="text-align: left;">4<b style="font-size: 30px;">data-rotate-z(data-rotate)</b></h1>
+    </div>
+    <div class="step" data-x="14000" data-y="-500">
+        <h1 style="text-align: left;">5<b style="font-size: 30px;">data-rotate-x</b></h1>
+    </div>
+    <div class="step" data-x="14000" data-y="-300">
+        <h1 style="text-align: left;">6<b style="font-size: 30px;">data-rotate-y</b></h1>
+    </div>
+    <div class="step" data-x="15000" data-y="500">
+        <h1 style="text-align: left;">7<b style="font-size: 30px;">data-scale</b></h1>
+    </div>
+    <div id="lab-1" class="step slide" data-x="15000" data-y="-100" data-scale="1">
+        <h1 style="text-align: left;margin-top: -30px;">Ex<b style="font-size: 30px;">Positions Lab</b></h1><hr style="margin-top: -25px;">
+        <form>
+            <div  style="font-size: 15px" class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lab-1-data-x">data-x:</label><input id="lab-1-data-x" type="text" value="350"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="lab-1-data-y">data-y:</label><input id="lab-1-data-y" type="text" value="100"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="lab-1-data-z">data-z:</label><input id="lab-1-data-z" type="text" value="0"><br>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lab-1-data-r-z">data-rotate-z:</label><input id="lab-1-data-r-z" type="text" value="-45"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="lab-1-data-r-x">data-rotate-x:</label><input id="lab-1-data-r-x" type="text" value="0"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="lab-1-data-r-y">data-rotate-y:</label><input id="lab-1-data-r-y" type="text" value="0"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="lab-1-data-scale">data-scale:</label><input id="lab-1-data-scale" type="text" value="2">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="position: absolute;bottom: 0;left:0;height:300px;background-color: #ebf3fc;width: 100%;">
+            <div id="lab-1-obj" style="text-align:center;background-color: #ffe45c;width: 100px;height: 100px;transform: translate3d(0px, 50px, -300px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+transform-style: preserve-3d;">Hello!</div>
+        </div>
+    </div>
+    <div data-background-color="#ffe45c" class="step" data-x="16500" data-y="-100" data-scale="2">
+        <h1 style="text-align: center;">Backgrounds</h1>
+        <div class="line red animate fadeInRightBig s2 full-hide"></div>
+        <div class="line white animate fadeInLeftBig s5 full-hide"></div>
+        <div class="line green animate fadeInRightBig s8 full-hide"></div>
+    </div>
+    <div class="step" data-x="16000" data-y="500">
+        <h1 style="text-align: left;">0<b style="font-size: 30px;">data-background- attributes</b></h1>
+    </div>
+    <div class="step" data-x="16000" data-y="700">
+        <h1 style="text-align: left;">1<b style="font-size: 30px;">data-background</b></h1>
+    </div>
+    <div class="step" data-x="16000" data-y="900">
+        <h1 style="text-align: left;">2<b style="font-size: 30px;">data-background-color</b></h1>
+    </div>
+    <div class="step" data-x="17000" data-y="1100">
+        <h1 style="text-align: left;">3<b style="font-size: 30px;">data-background-image</b></h1>
+    </div>
+    <div class="step" data-x="17000" data-y="700">
+        <h1 style="text-align: left;">4<b style="font-size: 30px;">data-background-repeat</b></h1>
+    </div>
+    <div class="step" data-x="17000" data-y="900">
+        <h1 style="text-align: left;">5<b style="font-size: 30px;">data-background-size</b></h1>
+    </div>
+
+    <div data-background-color="#8aba42" class="step" data-x="18500" data-y="-100" data-scale="2">
+        <h1 style="text-align: center;" class="animate wobble s13">A<b class="animate shake s15">n</b>i<b class="animate shake s15">m</b>a<b class="animate shake s15">t</b>i<b class="animate shake s15">o</b>n<b class="animate shake s15">s</b></h1>
+    </div>
+    <div class="step" data-x="18000" data-y="500">
+        <h1 style="text-align: left;">0<b style="font-size: 30px;">Intro</b></h1>
+    </div>
+    <div class="step" data-x="18000" data-y="1100">
+        <h1 style="text-align: left;">1<b style="font-size: 30px;">.animate [animation name]</b></h1>
+    </div>
+    <div class="step" data-x="18000" data-y="1700">
+        <h1 style="text-align: left;">2<b style="font-size: 30px;">speed</b></h1>
+    </div>
+    <div class="step" data-x="19000" data-y="500">
+        <h1 style="text-align: left;">3<b style="font-size: 30px;">.s1-.s15</b></h1>
+    </div>
+    <div class="step" data-x="19000" data-y="1100">
+        <h1 style="text-align: left;">4<b style="font-size: 30px;">hidden (.hide,.full-hide)</b></h1>
+    </div>
+    <div class="step" data-x="19000" data-y="1700">
+        <h1 style="text-align: left;">5<b style="font-size: 30px;">substeps animations</b></h1>
+    </div>
+
+    <div class="step" data-x="17000" data-y="1700" data-scale="45"></div>
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+</script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="ace-builds/src/ace.js"></script>
+<script src="ace-builds/src/ext-language_tools.js"></script>
+<script src="ace-builds/src/ext-static_highlight.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/impress.js"></script>
+<script>
+    function loadLab_1(){
+        var data_x = $("#lab-1-data-x").val();
+        var data_y = $("#lab-1-data-y").val();
+        var data_z = $("#lab-1-data-z").val();
+
+        var data_r_z = $("#lab-1-data-r-z").val();
+        var data_r_x = $("#lab-1-data-r-x").val();
+        var data_r_y = $("#lab-1-data-r-y").val();
+
+        var data_scale = $("#lab-1-data-scale").val();
+
+        var tr = "translate3d("+data_x+"px, "+data_y+"px, "+data_z+"px) rotateX("+data_r_x+"deg) rotateY("+data_r_y+"deg) rotateZ("+data_r_z+"deg) scale("+data_scale+")";
+        $("#lab-1-obj").css("transform",tr);
+    }
+    $("#lab-1 input").change(function(){
+        loadLab_1();
+    });
+    loadLab_1();
+    impress().init();
+    ace.require("ace/ext/language_tools");
+    function editor(id){
+        var editor = ace.edit(id);
+        editor.session.setMode("ace/mode/html");
+        editor.setTheme("ace/theme/tomorrow");
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: false
+        });
+    }
+    editor("edit");
+    var highlight = ace.require("ace/ext/static_highlight");
+    var dom = ace.require("ace/lib/dom");
+    function qsa(sel) {
+        return Array.apply(null, document.querySelectorAll(sel));
+    }
+    qsa(".code").forEach(function (codeEl) {
+        highlight(codeEl, {
+            mode: codeEl.getAttribute("ace-mode"),
+            theme: codeEl.getAttribute("ace-theme"),
+            startLineNumber: 1,
+            showGutter: codeEl.getAttribute("ace-gutter"),
+            trim: true
+        }, function (highlighted) {
+        });
+    });
+</script>
+<!--
+
+    Now you know more or less everything you need to build your first impress.js presentation, but before
+    you start...
+
+    Oh, you've already cloned the code from GitHub?
+
+    You have it open in text editor?
+
+    Stop right there!
+
+    That's not how you create awesome presentations. This is only a code. Implementation of the idea that
+    first needs to grow in your mind.
+
+    So if you want to build great presentation take a pencil and piece of paper. And turn off the computer.
+
+    Sketch, draw and write. Brainstorm your ideas on a paper. Try to build a mind-map of what you'd like
+    to present. It will get you closer and closer to the layout you'll build later with impress.js.
+
+    Get back to the code only when you have your presentation ready on a paper. It doesn't make sense to do
+    it earlier, because you'll only waste your time fighting with positioning of useless points.
+
+    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about
+    creating awesome and engaging presentations.
+
+    Think about it. 'Cause impress.js may not help you, if you have nothing interesting to say.
+
+-->
+
+<!--
+
+    Are you still reading this?
+
+    For real?
+
+    I'm impressed! Feel free to let me know that you got that far (I'm @bartaz on Twitter), 'cause I'd like
+    to congratulate you personally :)
+
+    But you don't have to do it now. Take my advice and take some time off. Make yourself a cup of coffee, tea,
+    or anything you like to drink. And raise a glass for me ;)
+
+    Cheers!
+
+-->
+</body>
+</html>
