@@ -1,3 +1,10 @@
+body{
+    /*Default background settings to enable transition. Overwrite if needed*/
+    background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+    transition: background-image 0ms linear;
+    background-size: cover;
+}
+
 .step {
     position: relative;
     width: 900px;
