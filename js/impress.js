@@ -21,7 +21,7 @@
  */
 
 /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, latedef:true, newcap:true,
- noarg:true, noempty:true, undef:true, strict:true, browser:true */
+noarg:true, noempty:true, undef:true, strict:true, browser:true */
 
 // You are one of those who like to know how things work inside?
 // Let me show you the cogs that make impress.js run...
@@ -52,14 +52,14 @@
     var pfx = (function () {
 
         var style = document.createElement('dummy').style,
-            prefixes = 'Webkit Moz O ms Khtml'.split(' '),
-            memory = {};
+        prefixes = 'Webkit Moz O ms Khtml'.split(' '),
+        memory = {};
 
         return function ( prop ) {
             if ( typeof memory[ prop ] === "undefined" ) {
 
                 var ucProp  = prop.charAt(0).toUpperCase() + prop.substr(1),
-                    props   = (prop + ' ' + prefixes.join(ucProp + ' ') + ucProp).split(' ');
+                props   = (prop + ' ' + prefixes.join(ucProp + ' ') + ucProp).split(' ');
 
                 memory[ prop ] = null;
                 for ( var i in props ) {
@@ -142,8 +142,8 @@
     // as second parameter.
     var rotate = function ( r, revert ) {
         var rX = " rotateX(" + r.x + "deg) ",
-            rY = " rotateY(" + r.y + "deg) ",
-            rZ = " rotateZ(" + r.z + "deg) ";
+        rY = " rotateY(" + r.y + "deg) ",
+        rZ = " rotateZ(" + r.z + "deg) ";
 
         return revert ? rZ+rY+rX : rX+rY+rZ;
     };
@@ -170,8 +170,8 @@
     // defined for the presentation in the config.
     var computeWindowScale = function ( config ) {
         var hScale = window.innerHeight / config.height,
-            wScale = window.innerWidth / config.width,
-            scale = hScale > wScale ? wScale : hScale;
+        wScale = window.innerWidth / config.width,
+        scale = hScale > wScale ? wScale : hScale;
 
         if (config.maxScale && scale > config.maxScale) {
             scale = config.maxScale;
@@ -269,15 +269,15 @@
         ( pfx("perspective") !== null ) &&
 
             // and `classList` and `dataset` APIs
-        ( body.classList ) &&
-        ( body.dataset ) &&
+            ( body.classList ) &&
+            ( body.dataset ) &&
 
             // but some mobile devices need to be blacklisted,
             // because their CSS 3D support or hardware is not
             // good enough to run impress.js properly, sorry...
-        ( ua.search(/(iphone)|(ipod)|(android)/) === -1 );
+            ( ua.search(/(iphone)|(ipod)|(android)/) === -1 );
 
-    if (!impressSupported) {
+            if (!impressSupported) {
         // we can't be sure that `classList` is supported
         body.className += " impress-not-supported ";
     } else {
@@ -301,7 +301,9 @@
 
         perspective: 1000,
 
-        transitionDuration: 1000
+        transitionDuration: 1000,
+
+        transparentPixel : "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     };
 
     // it's just an empty function ... and a useless comment.
@@ -393,20 +395,20 @@
         // data attributes and setting correct styles.
         var initStep = function ( el, idx ) {
             var data = el.dataset,
-                step = {
-                    translate: {
-                        x: toNumber(data.x),
-                        y: toNumber(data.y),
-                        z: toNumber(data.z)
-                    },
-                    rotate: {
-                        x: toNumber(data.rotateX),
-                        y: toNumber(data.rotateY),
-                        z: toNumber(data.rotateZ || data.rotate)
-                    },
-                    scale: toNumber(data.scale, 1),
-                    el: el
-                };
+            step = {
+                translate: {
+                    x: toNumber(data.x),
+                    y: toNumber(data.y),
+                    z: toNumber(data.z)
+                },
+                rotate: {
+                    x: toNumber(data.rotateX),
+                    y: toNumber(data.rotateY),
+                    z: toNumber(data.rotateZ || data.rotate)
+                },
+                scale: toNumber(data.scale, 1),
+                el: el
+            };
 
             if ( !el.id ) {
                 el.id = "step-" + (idx + 1);
@@ -429,7 +431,7 @@
                     function(substep){
                         substep.classList.add("future");
                     }
-                );
+                    );
             }
         };
 
@@ -560,6 +562,11 @@
                 }
 
                 if($(el).attr("data-background-image") != undefined){
+
+                    var fade = $(el).attr("data-background-fade");
+                    var fade = fade ? fade : 0;
+                    $("body").css("transition","background-image " + fade + "ms linear");
+
                     $("body").css("background-image","url(\""+$(el).attr("data-background-image")+"\")");
                     if($(el).attr("data-change-all") == "true"){
                         background_image = $(el).attr("data-background-image");
@@ -683,10 +690,10 @@
             // - it's simply comparing all the values.
             if ( currentState.scale === target.scale ||
                 (currentState.rotate.x === target.rotate.x && currentState.rotate.y === target.rotate.y &&
-                currentState.rotate.z === target.rotate.z && currentState.translate.x === target.translate.x &&
-                currentState.translate.y === target.translate.y && currentState.translate.z === target.translate.z) ) {
+                    currentState.rotate.z === target.rotate.z && currentState.translate.x === target.translate.x &&
+                    currentState.translate.y === target.translate.y && currentState.translate.z === target.translate.z) ) {
                 delay = 0;
-            }
+        }
 
             // store current state
             currentState = target;
@@ -889,15 +896,15 @@
                     case 33: // pg up
                     case 37: // left
                     case 38: // up
-                        api.prev();
-                        break;
+                    api.prev();
+                    break;
                     case 9:  // tab
                     case 32: // space
                     case 34: // pg down
                     case 39: // right
                     case 40: // down
-                        api.next();
-                        break;
+                    api.next();
+                    break;
                 }
 
                 event.preventDefault();
@@ -910,12 +917,12 @@
             // check if event target (or any of its parents is a link)
             var target = event.target;
             while ( (target.tagName !== "A") &&
-            (target !== document.documentElement) ) {
+                (target !== document.documentElement) ) {
                 target = target.parentNode;
-            }
+        }
 
-            if ( target.tagName === "A" ) {
-                var href = target.getAttribute("href");
+        if ( target.tagName === "A" ) {
+            var href = target.getAttribute("href");
 
                 // if it's a link to presentation step, target this step
                 if ( href && href[0] === '#' ) {
@@ -934,9 +941,9 @@
             var target = event.target;
             // find closest step element that is not active
             while ( !(target.classList.contains("step") && !target.classList.contains("active")) &&
-            (target !== document.documentElement) ) {
+                (target !== document.documentElement) ) {
                 target = target.parentNode;
-            }
+        }
 
             /*if ( api.goto(target) ) {
                 event.preventDefault();
@@ -948,8 +955,8 @@
         document.addEventListener("touchstart", function ( event ) {
             if (event.touches.length === 1) {
                 var x = event.touches[0].clientX,
-                    width = window.innerWidth * 0.3,
-                    result = null;
+                width = window.innerWidth * 0.3,
+                result = null;
 
                 if ( x < width ) {
                     result = api.prev();
